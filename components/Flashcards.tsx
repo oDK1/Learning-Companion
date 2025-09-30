@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { useStore, Flashcard } from '@/lib/store';
+import { useStore } from '@/lib/store';
 
 export default function Flashcards() {
   const [loading, setLoading] = useState(false);
@@ -105,7 +105,7 @@ export default function Flashcards() {
             All Done!
           </h2>
           <p className="text-2xl text-gray-700 mb-8 font-semibold">
-            You've mastered all the flashcards! 🎉
+            You&apos;ve mastered all the flashcards! 🎉
           </p>
           <div className="bg-white rounded-xl p-6 max-w-md mx-auto shadow-lg">
             <p className="text-gray-600 text-lg">
@@ -219,7 +219,7 @@ export default function Flashcards() {
           className="group px-10 py-4 bg-gradient-to-r from-green-600 to-teal-600 text-white rounded-xl hover:from-green-700 hover:to-teal-700 transition-all font-bold text-lg shadow-lg hover:shadow-xl hover:scale-105 flex items-center gap-3 mx-auto"
         >
           <span className="text-2xl group-hover:scale-125 transition-transform">✓</span>
-          <span>I've Mastered This!</span>
+          <span>I&apos;ve Mastered This!</span>
         </button>
       </div>
 

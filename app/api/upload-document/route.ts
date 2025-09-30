@@ -64,16 +64,16 @@ async function parsePDF(file: File): Promise<string> {
   return new Promise((resolve, reject) => {
     const pdfParser = new PDFParser();
 
-    pdfParser.on('pdfParser_dataError', (errData: any) => {
+    pdfParser.on('pdfParser_dataError', (errData: { parserError: string }) => {
       reject(new Error(errData.parserError));
     });
 
-    pdfParser.on('pdfParser_dataReady', (pdfData: any) => {
+    pdfParser.on('pdfParser_dataReady', (pdfData: { Pages: Array<{ Texts: Array<{ R: Array<{ T: string }> }> }> }) => {
       try {
         let text = '';
-        pdfData.Pages.forEach((page: any) => {
-          page.Texts.forEach((textItem: any) => {
-            textItem.R.forEach((textRun: any) => {
+        pdfData.Pages.forEach((page) => {
+          page.Texts.forEach((textItem) => {
+            textItem.R.forEach((textRun) => {
               text += decodeURIComponent(textRun.T) + ' ';
             });
           });

@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { useStore, Question } from '@/lib/store';
+import { useStore } from '@/lib/store';
 
 interface QuizProps {
   onComplete: () => void;
@@ -194,7 +194,7 @@ export default function Quiz({ onComplete }: QuizProps) {
             ) : (
               <div className="text-center bg-gradient-to-r from-green-50 to-teal-50 rounded-xl p-8 border-2 border-green-200">
                 <p className="text-3xl text-green-600 font-bold mb-2">Perfect Score! 🎉</p>
-                <p className="text-gray-600 text-lg">You've completely mastered this content!</p>
+                <p className="text-gray-600 text-lg">You&apos;ve completely mastered this content!</p>
               </div>
             )}
           </div>
@@ -204,7 +204,6 @@ export default function Quiz({ onComplete }: QuizProps) {
   }
 
   const currentQuestion = questions[currentQuestionIndex];
-  const isAnswered = selectedAnswers[currentQuestion.id] !== undefined;
   const allAnswered = questions.every((q) => selectedAnswers[q.id] !== undefined);
   const userAnswer = selectedAnswers[currentQuestion.id];
   const isCorrect = userAnswer === currentQuestion.correctAnswer;

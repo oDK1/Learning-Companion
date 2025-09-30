@@ -7,7 +7,7 @@ const client = new Anthropic({
 
 export async function POST(request: NextRequest) {
   try {
-    const { incorrectTopics, summary } = await request.json();
+    const { incorrectTopics } = await request.json();
 
     if (!incorrectTopics || !Array.isArray(incorrectTopics)) {
       return NextResponse.json(
